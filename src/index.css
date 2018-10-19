@@ -6,6 +6,12 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+input,
+button {
+    font-size: 14px;
+    font-family: 'Niramit', sans-serif;
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;

@@ -11,14 +11,17 @@ const ModalHeader = styled.div({
     flexShrink: 0,
     padding: '10px 20px',
     fontSize: 28,
-    fontWeight: 200
+    fontWeight: 200,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
 })
 
 const ModalBody = styled.div({
     backgroundColor: darkColor,
     borderBottomLeftRadius: 3,
     borderBottomRightRadius: 3,
-    opacity: 0.8,
+    opacity: 0.7,
     flexGrow: 1
 })
 
@@ -30,16 +33,17 @@ const ModalWrapper = styled.div({
     width: '100%'
 })
 
-const Modal = ({ icon, title }) => (
+const Modal = ({ icon, title, controls }) => (
     <ModalWrapper>
         <ModalHeader>
-            {!!icon && (
-                <span>
-                    <SvgIcon icon={icon} width={28} height={28} />
-                    &nbsp;
-                </span>
-            )}
-            <span className={vAlign}>{title}</span>
+            <div>
+                {!!icon && [
+                    <SvgIcon icon={icon} width={28} height={28} />,
+                    ' '
+                ]}
+                <span className={vAlign}>{title}</span>
+            </div>
+            {!!controls && controls}
         </ModalHeader>
         <ModalBody />
     </ModalWrapper>

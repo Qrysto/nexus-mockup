@@ -1,6 +1,8 @@
 import React from 'react'
-import nexusSvg from './nexus.svg'
-import styled, { css } from 'react-emotion/macro'
+import SvgIcon from 'components/SvgIcon'
+import SvgSprite from './SvgSprite'
+import styled from 'react-emotion/macro'
+import { primaryColor } from 'consts'
 
 const Navigation = styled.div({
     display: 'flex',
@@ -12,17 +14,21 @@ const Line = styled.div({
     width: '60%',
     height: 2,
     margin: '0 auto',
-    backgroundImage:
-        '-webkit-linear-gradient(left, transparent 0%, #0ca4fb 50%, transparent 100%)'
+    backgroundImage: `-webkit-linear-gradient(left, transparent 0%, ${primaryColor} 50%, transparent 100%)`
 })
 
-const icon = css({
+const Icon = styled(SvgIcon)({
     height: 40,
-    opacity: 0.8,
-    transition: 'opacity .2s',
+    width: 40,
+    opacity: 0.7,
+    transform: 'scale(.9)',
+    transition: 'opacity .2s, transform .2s',
     cursor: 'pointer',
+    fill: '#fff',
+    margin: '0 10px',
     '&:hover': {
-        opacity: 1
+        opacity: 1,
+        transform: 'scale(1)'
     }
 })
 
@@ -35,9 +41,18 @@ const Wrapper = styled.div({
 
 const Header = () => (
     <Wrapper>
+        <SvgSprite />
         <Line />
         <Navigation>
-            <img className={icon} src={nexusSvg} alt="Dashboard" />
+            <Icon icon="nexus-logo" />
+            <Icon icon="send" />
+            <Icon icon="transactions" />
+            <Icon icon="chart" />
+            <Icon icon="address-book" />
+            <Icon icon="settings" />
+            <Icon icon="console" />
+            <Icon icon="shapeshift" />
+            <Icon icon="hand-shake" />
         </Navigation>
     </Wrapper>
 )

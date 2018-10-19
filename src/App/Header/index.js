@@ -1,25 +1,50 @@
 import React from 'react'
-import logoImg from './nexus-logo.png'
+import SvgIcon from 'components/SvgIcon'
+import SvgSprite from './SvgSprite'
 import styled from 'react-emotion/macro'
+import { primaryColor } from 'consts'
 
-const Logo = styled.img({
-    margin: '20px auto',
-    textAlign: 'center',
-    display: 'block',
-    height: 50
+const HeaderContent = styled.div({
+    display: 'flex',
+    justifyContent: 'center',
+    padding: '20px 0'
+})
+
+const LogoWrapper = styled.div({
+    position: 'relative'
+})
+
+const Logo = styled(SvgIcon)({
+    height: 50,
+    fill: primaryColor
+})
+
+const Beta = styled.div({
+    color: 'white',
+    fontSize: 12,
+    position: 'absolute',
+    bottom: 4,
+    right: 15,
+    letterSpacing: 1,
+    textTransform: 'uppercase'
 })
 
 const Line = styled.div({
     width: '80%',
-    height: 4,
+    height: 2,
     margin: '0 auto',
-    backgroundImage:
-        '-webkit-linear-gradient(left, transparent 0%, #0ca4fb 50%, transparent 100%)'
+    backgroundImage: `-webkit-linear-gradient(left, transparent 0%, ${primaryColor} 50%, transparent 100%)`
 })
 
 const Header = () => (
     <div>
-        <Logo src={logoImg} alt="Nexus" />
+        <SvgSprite />
+        <HeaderContent>
+            <LogoWrapper>
+                <Logo icon="nexus-logo-full" />
+                <Beta>beta</Beta>
+            </LogoWrapper>
+        </HeaderContent>
         <Line />
     </div>
 )

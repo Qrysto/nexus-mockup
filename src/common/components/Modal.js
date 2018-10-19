@@ -1,8 +1,19 @@
 import React from 'react'
-import styled from 'react-emotion/macro'
+import styled, { keyframes } from 'react-emotion/macro'
 import SvgIcon from 'components/SvgIcon'
 import { vAlign } from 'styles'
 import { darkColor, lightColor } from 'consts'
+
+const intro = keyframes`
+    from { 
+        transform: scale(0.9);
+        opacity: 0.5 
+    }
+    to { 
+        transform: scale(1);
+        opacity: 1
+    }
+`
 
 const borderRadius = 4
 
@@ -34,7 +45,8 @@ const ModalWrapper = styled.div({
     flexDirection: 'column',
     alignItems: 'stretch',
     color: lightColor,
-    width: '100%'
+    width: '100%',
+    animation: `${intro} .3s ease-out`
 })
 
 const Modal = ({ icon, title, controls, children }) => (

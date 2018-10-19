@@ -1,12 +1,25 @@
 import React from 'react'
 import SvgIcon from 'components/SvgIcon'
-import styled from 'react-emotion/macro'
-import { primaryColor } from 'consts'
+import HorizontalLine from 'components/HorizontalLine'
+import styled, { keyframes } from 'react-emotion/macro'
+import { primaryColor, easeOutMore } from 'consts'
+
+const intro = keyframes`
+    from { 
+        transform: scale(0.5);
+        opacity: 0 
+    }
+    to { 
+        transform: scale(1);
+        opacity: 1
+    }
+`
 
 const HeaderContent = styled.div({
     display: 'flex',
     justifyContent: 'center',
-    padding: '20px 0'
+    padding: '20px 0',
+    animation: `${intro} 1s ${easeOutMore}`
 })
 
 const LogoWrapper = styled.div({
@@ -28,13 +41,6 @@ const Beta = styled.div({
     textTransform: 'uppercase'
 })
 
-const Line = styled.div({
-    width: '80%',
-    height: 2,
-    margin: '0 auto',
-    backgroundImage: `-webkit-linear-gradient(left, transparent 0%, ${primaryColor} 50%, transparent 100%)`
-})
-
 const Header = () => (
     <div>
         <HeaderContent>
@@ -43,7 +49,7 @@ const Header = () => (
                 <Beta>beta</Beta>
             </LogoWrapper>
         </HeaderContent>
-        <Line />
+        <HorizontalLine width="80%" />
     </div>
 )
 

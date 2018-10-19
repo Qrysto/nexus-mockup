@@ -48,10 +48,12 @@ const AddressBook = () => (
             })}
         >
             <EmptyMessage>Your address book is empty</EmptyMessage>
-            <HyperLink>
-                <SvgIcon icon="plus" width=".8em" height=".8em" />
-                <span className={vAlign}> Add Contact</span>
-            </HyperLink>
+            <div className={css({ marginTop: 5 })}>
+                <HyperLink className={css({ fontSize: 17, paddingTop: 10 })}>
+                    <SvgIcon icon="plus" width=".8em" height=".8em" />
+                    <span className={vAlign}> Add Contact</span>
+                </HyperLink>
+            </div>
         </div>
     </Modal>
 )

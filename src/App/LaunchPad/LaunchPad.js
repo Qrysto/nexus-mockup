@@ -1,20 +1,26 @@
 import React from 'react'
 import SvgIcon from 'components/SvgIcon'
 import Button from 'components/Inputs/Button'
-import styled from 'react-emotion/macro'
-import { primaryColor } from 'consts'
+import HorizontalLine from 'components/HorizontalLine'
+import styled, { keyframes } from 'react-emotion/macro'
+import { primaryColor, easeOutMore } from 'consts'
+
+const intro = keyframes`
+    from { 
+        transform: translateY(50%);
+        opacity: 0 
+    }
+    to { 
+        transform: translateY(0);
+        opacity: .8
+    }
+`
 
 const Navigation = styled.div({
     display: 'flex',
     justifyContent: 'center',
-    paddingBottom: 8
-})
-
-const Line = styled.div({
-    width: '60%',
-    height: 2,
-    margin: '0 auto',
-    backgroundImage: `-webkit-linear-gradient(left, transparent 0%, ${primaryColor} 50%, transparent 100%)`
+    paddingBottom: 8,
+    animation: `${intro} 1s ${easeOutMore}`
 })
 
 const NavItem = styled(Button)(
@@ -45,7 +51,7 @@ const Icon = styled(SvgIcon)(
 
 const Header = () => (
     <div>
-        <Line />
+        <HorizontalLine width="60%" />
         <Navigation>
             <NavItem invisLight>
                 <Icon icon="nexus-logo" />

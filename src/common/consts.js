@@ -6,3 +6,4 @@ export const oppositePrimaryColor = lightColor
 
 // Default styles
 export const lineHeight = 1.2
+export const easeOutMore = 'cubic-bezier(0, .9, .9, 1)'

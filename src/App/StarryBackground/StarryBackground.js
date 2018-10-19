@@ -27,7 +27,7 @@ const Twinkling = styled.div({
     right: 0,
     bottom: 0,
     background: `transparent url(${twinklingImg}) repeat top center`,
-    animation: `${twinkling} 60s linear infinite`
+    animation: `${twinkling} 45s linear infinite`
 })
 
 const StarryBackground = () => (

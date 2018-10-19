@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import SvgSprite from './SvgSprite'
 import StarryBackground from './StarryBackground'
 import Header from './Header'
@@ -32,22 +32,38 @@ const ContentWrapper = styled.div({
     alignItems: 'stretch'
 })
 
-const App = () => (
-    <div>
-        <SvgSprite />
-        <StarryBackground />
-        <Overlay>
-            <HeaderWrapper>
-                <Header />
-            </HeaderWrapper>
-            <ContentWrapper>
-                <AddressBook />
-            </ContentWrapper>
-            <LaunchPadWrapper>
-                <LaunchPad />
-            </LaunchPadWrapper>
-        </Overlay>
-    </div>
-)
+class App extends Component {
+    state = {
+        activePage: 'home'
+    }
+
+    setPage = page => {
+        this.setState({ activePage: page })
+    }
+
+    render() {
+        const content =
+            this.state.activePage === 'addressBook' ? <AddressBook /> : null
+
+        return (
+            <div>
+                <SvgSprite />
+                <StarryBackground />
+                <Overlay>
+                    <HeaderWrapper>
+                        <Header />
+                    </HeaderWrapper>
+                    <ContentWrapper>{content}</ContentWrapper>
+                    <LaunchPadWrapper>
+                        <LaunchPad
+                            activePage={this.state.activePage}
+                            navigate={this.setPage}
+                        />
+                    </LaunchPadWrapper>
+                </Overlay>
+            </div>
+        )
+    }
+}
 
 export default App

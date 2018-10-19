@@ -6,8 +6,8 @@ import { darkColor, lightColor } from 'consts'
 
 const intro = keyframes`
     from { 
-        transform: scale(0.9);
-        opacity: 0.5 
+        transform: scale(0.92);
+        opacity: 0.66 
     }
     to { 
         transform: scale(1);
@@ -46,7 +46,7 @@ const ModalWrapper = styled.div({
     alignItems: 'stretch',
     color: lightColor,
     width: '100%',
-    animation: `${intro} .3s ease-out`
+    animation: `${intro} .2s ease-out`
 })
 
 const Modal = ({ icon, title, controls, children }) => (

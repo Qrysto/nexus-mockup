@@ -49,12 +49,18 @@ const Icon = styled(SvgIcon)(
         }
 )
 
-const Header = () => (
+const LaunchPad = ({ activePage, navigate }) => (
     <div>
         <HorizontalLine width="60%" />
         <Navigation>
-            <NavItem invisLight>
-                <Icon icon="nexus-logo" />
+            <NavItem
+                invisLight
+                active={activePage === 'home'}
+                onClick={() => {
+                    navigate('home')
+                }}
+            >
+                <Icon icon="nexus-logo" active={activePage === 'home'} />
             </NavItem>
             <NavItem invisLight>
                 <Icon icon="send" />
@@ -65,8 +71,17 @@ const Header = () => (
             <NavItem invisLight>
                 <Icon icon="chart" />
             </NavItem>
-            <NavItem invisLight active>
-                <Icon icon="address-book" active />
+            <NavItem
+                invisLight
+                active={activePage === 'addressBook'}
+                onClick={() => {
+                    navigate('addressBook')
+                }}
+            >
+                <Icon
+                    icon="address-book"
+                    active={activePage === 'addressBook'}
+                />
             </NavItem>
             <NavItem invisLight>
                 <Icon icon="settings" />
@@ -84,4 +99,4 @@ const Header = () => (
     </div>
 )
 
-export default Header
+export default LaunchPad

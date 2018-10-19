@@ -4,12 +4,14 @@ import SvgIcon from 'components/SvgIcon'
 import { vAlign } from 'styles'
 import { darkColor, lightColor } from 'consts'
 
+const borderRadius = 4
+
 const ModalHeader = styled.div({
     backgroundColor: darkColor,
-    borderTopLeftRadius: 3,
-    borderTopRightRadius: 3,
+    borderTopLeftRadius: borderRadius,
+    borderTopRightRadius: borderRadius,
     flexShrink: 0,
-    padding: '10px 20px',
+    padding: '10px 30px',
     fontSize: 28,
     fontWeight: 200,
     display: 'flex',
@@ -19,10 +21,12 @@ const ModalHeader = styled.div({
 
 const ModalBody = styled.div({
     backgroundColor: darkColor,
-    borderBottomLeftRadius: 3,
-    borderBottomRightRadius: 3,
+    borderBottomLeftRadius: borderRadius,
+    borderBottomRightRadius: borderRadius,
     opacity: 0.7,
-    flexGrow: 1
+    flexGrow: 1,
+    padding: '10px 20px',
+    overflowY: 'overlay'
 })
 
 const ModalWrapper = styled.div({
@@ -33,7 +37,7 @@ const ModalWrapper = styled.div({
     width: '100%'
 })
 
-const Modal = ({ icon, title, controls }) => (
+const Modal = ({ icon, title, controls, children }) => (
     <ModalWrapper>
         <ModalHeader>
             <div>
@@ -45,7 +49,7 @@ const Modal = ({ icon, title, controls }) => (
             </div>
             {!!controls && controls}
         </ModalHeader>
-        <ModalBody />
+        <ModalBody>{children}</ModalBody>
     </ModalWrapper>
 )
 

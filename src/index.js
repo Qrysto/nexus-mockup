@@ -1,8 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
+import { injectGlobal } from 'emotion/macro'
+
+injectGlobal`
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Niramit', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    input,
+    button {
+        font-size: 14px;
+        font-family: 'Niramit', sans-serif;
+    }
+`
 
 ReactDOM.render(<App />, document.getElementById('root'))
 

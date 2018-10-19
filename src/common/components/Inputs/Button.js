@@ -1,6 +1,10 @@
 import styled from 'react-emotion/macro'
-import { primaryColor, oppositePrimaryColor } from 'consts'
-import { lightColor, darkColor } from '../../consts'
+import {
+    primaryColor,
+    oppositePrimaryColor,
+    lightColor,
+    darkColor
+} from 'consts'
 
 const Button = styled.button(
     {
@@ -10,8 +14,9 @@ const Button = styled.button(
         outline: 'none',
         cursor: 'pointer',
         height: '2.28em',
-        opacity: 0.9,
-        transition: 'opacity .2s',
+        opacity: 0.8,
+        transitionProperties: 'opacity',
+        transitionDuration: '.2s',
         '&:hover': {
             opacity: 1
         }

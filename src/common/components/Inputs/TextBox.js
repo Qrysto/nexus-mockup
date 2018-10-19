@@ -10,7 +10,7 @@ const TextBox = styled.input(
         border: 'none',
         outline: 'none',
         height: '2.28em',
-        opacity: 0.9,
+        opacity: 0.8,
         transition: 'opacity .2s',
         '&:hover, &:focus, &:hover + button, &:focus + button': {
             opacity: 1

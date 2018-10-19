@@ -4,7 +4,7 @@ import HorizontalLine from 'components/HorizontalLine'
 import styled, { keyframes } from 'react-emotion/macro'
 import { primaryColor, easeOutMore } from 'consts'
 
-const intro = keyframes`
+const fadeInAndExpand = keyframes`
     from { 
         transform: scale(0.5);
         opacity: 0 
@@ -16,14 +16,15 @@ const intro = keyframes`
 `
 
 const HeaderContent = styled.div({
+    position: 'relative',
     display: 'flex',
     justifyContent: 'center',
-    padding: '20px 0',
-    animation: `${intro} 1s ${easeOutMore}`
+    padding: '20px 0'
 })
 
 const LogoWrapper = styled.div({
-    position: 'relative'
+    position: 'relative',
+    animation: `${fadeInAndExpand} 1s ${easeOutMore}`
 })
 
 const Logo = styled(SvgIcon)({
@@ -41,6 +42,34 @@ const Beta = styled.div({
     textTransform: 'uppercase'
 })
 
+const fadeIn = keyframes`
+    from { opacity: 0 }
+    to { opacity: 1 }
+`
+
+// const Account = styled.div({
+//     position: 'absolute',
+//     left: 30,
+//     top: 30,
+//     animation: `${fadeIn} 1s ${easeOutMore}`
+// })
+
+const Statuses = styled.div({
+    position: 'absolute',
+    right: 30,
+    top: 30,
+    display: 'flex',
+    animation: `${fadeIn} 1s ${easeOutMore}`
+})
+
+const Status = styled(SvgIcon)({
+    margin: '0 6px',
+    fill: primaryColor,
+    cursor: 'pointer',
+    width: 20,
+    height: 20
+})
+
 const Header = () => (
     <div>
         <HeaderContent>
@@ -48,6 +77,12 @@ const Header = () => (
                 <Logo icon="nexus-logo-full" />
                 <Beta>beta</Beta>
             </LogoWrapper>
+            <Statuses>
+                <Status icon="lock" />
+                <Status icon="staking" />
+                <Status icon="check" />
+                <Status icon="user" />
+            </Statuses>
         </HeaderContent>
         <HorizontalLine width="80%" />
     </div>

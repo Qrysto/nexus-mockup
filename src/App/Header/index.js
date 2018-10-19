@@ -1,6 +1,5 @@
 import React from 'react'
 import SvgIcon from 'components/SvgIcon'
-import SvgSprite from './SvgSprite'
 import styled from 'react-emotion/macro'
 import { primaryColor } from 'consts'
 
@@ -38,7 +37,6 @@ const Line = styled.div({
 
 const Header = () => (
     <div>
-        <SvgSprite />
         <HeaderContent>
             <LogoWrapper>
                 <Logo icon="nexus-logo-full" />

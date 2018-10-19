@@ -2,8 +2,8 @@ import React from 'react'
 import styled from 'react-emotion/macro'
 
 const Svg = styled.svg({
-    fill: 'inherit',
-    stroke: 'inherit',
+    fill: 'currentColor',
+    stroke: 'currentColor',
     verticalAlign: 'middle',
     transitionProperty: 'fill, stroke',
     transitionDuration: '.2s'

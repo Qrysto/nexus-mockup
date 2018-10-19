@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import styled, { keyframes } from 'react-emotion/macro'
-import starImg from './stars.png'
+import starImg from './stars.jpg'
 import twinklingImg from './twinkling.png'
 
 const twinkling = keyframes`
